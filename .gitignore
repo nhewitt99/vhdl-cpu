@@ -1,0 +1,4 @@
+/3183-cpu.runs/
+/3183-cpu.sim/
+*.o
+*.cf

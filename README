@@ -1,0 +1,31 @@
+----------------------------------------------------------------------------------
+-- Author: Nathan Hewitt, nhewitt@uncc.edu
+--
+-- Designed and written for UNCC ECGR 3183, Computer Organization
+-- LEGv8 CPU Project, Fall 2019
+-- 
+-- Latest revision: 12/3/2019
+----------------------------------------------------------------------------------
+
+***BUILDING***
+To build the CPU, ghdl must be installed. I'm sure it can also be done in Vivado,
+but I didn't have 40 free GB to download that. Once ghdl is installed, run:
+    $ cd {this directory}
+    $ ghdl -a *.vhd tb/*.vhd
+    $ ghdl -e singlecycletb
+    $ ghdl -e pipelinedtb
+    
+    
+***RUNNING***
+After building as above, run either:
+    $ ghdl -r singlecycletb
+for the single cycle version, or:
+    $ ghdl -r pipelinedtb
+for the pipelined version.
+
+They will initialize their instruction memory with the data found in
+"data/program.dat". To change what program is run, simply copy the data from
+fibonacci.dat, sample.dat, or samplepipelined.dat into program.dat.
+
+Note that the pipelined architecture will only behave correctly when running
+the samplepipelined.dat, because the other two are ripe with data hazards.
